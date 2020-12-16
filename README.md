@@ -1,2 +1,3 @@
 # ebfm_colle_gnifetti
-Model code for the Colle Gnifetti paper
+This repository contains the model code for the paper "Firn changes at Colle Gnifetti revealed with a high-resolution process-based physical model approach".
+Currently under construction.
