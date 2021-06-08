@@ -1,5 +1,5 @@
 # EBFM Colle Gnifetti
-This repository contains the energy-balance and firn model code for the paper "Firn changes at Colle Gnifetti revealed with a high-resolution process-based physical model approach".
+This repository contains the energy-balance and firn model code for the paper "Firn changes at Colle Gnifetti revealed with a high-resolution process-based physical model approach" (Mattea *et al.*, 2021).
 
 
 
