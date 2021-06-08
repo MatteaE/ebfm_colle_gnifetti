@@ -41,7 +41,7 @@ elseif LHF_scheme == 3
 
 elseif LHF_scheme == 4
         
-    % Latent heat as in Suter (2002): we use the latent heat of sublimation below -10 °C surface temperature, the latent heat of vaporization at 0 °C, and a linear interpolation of the two in between.
+    % Latent heat constant formulated as in Suter (2002): we use the latent heat of sublimation below -10 °C surface temperature, the latent heat of vaporization at 0 °C, and a linear interpolation of the two in between.
     Lheat = C.Ls .* max(0, min(1, 0.1*(273.15-Tsurf))) ...
             + C.Lv .* max(0, min(1, 0.1*(Tsurf-263.15)));
     

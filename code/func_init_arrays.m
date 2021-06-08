@@ -82,11 +82,6 @@ clim.Pres(1:grid.gpsum,1)                       = 0.0;              % CLIM: air 
 %clim.Ri(1:grid.gpsum, 1)                        = 0.0;              % CLIM: bulk Richardson number, Oke (1987) formulation.
 clim.Ri2(1:grid.gpsum, 1)                       = 0.0;              % CLIM: bulk Richardson number, Essery (2004) formulation.
 
-%clim.Theta_lapse(1:grid.gpsum,1)                = 0.0;              %
-%CLIM: potential temperature lapse rate. Actually it is a scalar, not an
-%array, so we don't initialize it.
-%clim.Wind_speed(1:grid.gpsum,1)                 = 0.0;              %
-%CLIM: wind speed. Actually it is a scalar, so we don't initialize it.
 OUT = struct;
 
 end

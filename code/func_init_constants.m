@@ -39,7 +39,7 @@ C.z0 = 0.001;                 % Roughness length for the Essery (2004) approach.
 
 %% Essery bulk approach.
 C.Chn = 0.16 * (log(C.dz / C.z0)^-2);         % neutral exchange coefficient for Essery (2004) bulk approach.
-C.fz = 0.25 * sqrt(C.z0 / C.dz);              % parameter in the Essery (2004) bulk approach. NOTE HOW WE TAKE z0t!
+C.fz = 0.25 * sqrt(C.z0 / C.dz);              % parameter in the Essery (2004) bulk approach.
 
 
 %% Physical constants

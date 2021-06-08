@@ -14,10 +14,6 @@ clearvars;
 [grid]                      = func_init_grid(grid,io);
 [A,clim,insol,OUT]          = func_init_arrays(C,grid,io);
 
-% To log the exchange coefficient.
-% A.logvar = zeros(time.tn,1);
-% A.logvar2 = zeros(time.tn,1);
-
 
 %% Time-loop
 for t=1:time.tn

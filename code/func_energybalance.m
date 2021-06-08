@@ -51,12 +51,6 @@ for c=1:20
 end
 
 
-if max(ebal_ttmid) > 50
-%     ebal_bad_ids = find(ebal_ttmid > 10);
-%     fprintf("First bad id: %i\n", ebal_bad_ids(1))
-    error("Energy balance error!")
-end
-
 %% In case the computed surface temperature is higher than zero:
 % - set surface temperature to melting point
 % - excess energy is used for melting (Emelt)
@@ -82,16 +76,10 @@ A.moist_sublimation = -24.*3600.*time.dt.*LHF./C.Ls./1d3 .* (ttmid<273.15 & LHF<
 A.moist_evaporation = -24.*3600.*time.dt.*LHF./C.Lv./1d3 .* (ttmid>=273.15 & LHF<0);
 A.melt = 24.*3600.*time.dt.*Emelt./C.Lm./1d3;
 
-% fprintf("Melt: %d  %d\n", min(A.melt), max(A.melt));
-%if (min(A.melt) * max(A.melt) < 0)
-%    error("Melt problem!")
-%end
-%if (any(A.melt > 0)); disp ("Melt > 0!"); end % Problem: A.melt is
-%always stuck at 0.0.
+
 
 %% Avoid melt of soil (for thin snow cover)
 max_melt = sum(A.subZ.*A.subD./C.Dwater.*(A.subSOIL==0),2)+clim.snow;
-%if (any(max_melt==0)); disp("Max melt = 0!"); end
 A.melt = min(A.melt,max_melt);
 cond = A.melt==max_melt & A.melt>0;
 A.Emelt_eff = A.melt(cond) ./ (24.*3600.*time.dt) .* (C.Lm.*1d3);
@@ -131,9 +119,6 @@ A.moist_evaporation = min(A.moist_evaporation,max_evap);
 %% Avoid sublimation of soil
 max_subl = sum(A.subZ.*A.subD./C.Dwater.*(A.subSOIL==0),2)+clim.snow;
 A.moist_sublimation = min(A.moist_sublimation,max_subl);
-
-
-%fprintf("SHF[1,1] = %d, LHF[1,1] = %d\n", SHF(1,1), LHF(1,1));
 
 
 %% Store output
